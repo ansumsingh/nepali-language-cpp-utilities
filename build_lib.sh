@@ -17,7 +17,7 @@ then
   popd
 fi
 
-docker run -v $(pwd):/workspace 
-            -v /home/${USER}/.cache:/home/${USER}/.cache 
-            -w /workspace -i -u $UID:$GID 
+docker run -v $(pwd):/workspace \
+            -v /home/${USER}/.cache:/home/${USER}/.cache \
+            -w /workspace -i -u $UID:$GID \
             -t ${DOCKER_IMAGE_TAG}
