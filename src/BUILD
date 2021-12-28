@@ -1,4 +1,5 @@
-cc_binary(
-    name = "test",
-    srcs = ["test.cpp"],
+cc_library(
+    name = "nepaliunicode",
+    srcs = ["nepaliunicode.cpp"],
+    hdrs = ["nepaliunicode.h"],
 )
