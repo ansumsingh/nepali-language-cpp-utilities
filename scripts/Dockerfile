@@ -9,6 +9,7 @@ RUN groupadd --gid $USER_GID $USERNAME \
 
 RUN apt update && apt install -y g++ \
     curl \
+    cmake \
     unzip \
     zip \
     tar \
@@ -16,10 +17,7 @@ RUN apt update && apt install -y g++ \
     gdb \
     apt-transport-https \
     gnupg \
-    openjdk-11-jdk \
-    wget
+    python3-pip \
 
-RUN wget https://github.com/bazelbuild/bazel/releases/download/4.2.2/bazel-4.2.2-installer-linux-x86_64.sh &&\
-    chmod +x bazel-4.2.2-installer-linux-x86_64.sh &&\
-    ./bazel-4.2.2-installer-linux-x86_64.sh
+RUN pip3 install conan
 
