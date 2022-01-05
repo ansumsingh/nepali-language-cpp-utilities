@@ -89,7 +89,7 @@ const auto keyToNepali = std::unordered_map<char, wchar_t>{
 
 
 std::wstring
-nepaliunicode::convertToNepali(const std::string &romanized_nepali) {
+nepaliunicode::to_nepali(const std::string &romanized_nepali) {
   auto result = std::wstring{};
   std::transform(romanized_nepali.cbegin(), romanized_nepali.cend(),
                  std::back_inserter(result), [&](const char input_char) {

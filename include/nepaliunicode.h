@@ -3,5 +3,5 @@
 
 namespace nepaliunicode
 {
-  std::wstring convertToNepali(const std::string& romanized_nepali);
+  std::wstring to_nepali(const std::string& romanized_nepali);
 } // namespace nepaliunicode
