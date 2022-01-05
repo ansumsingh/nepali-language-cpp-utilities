@@ -36,4 +36,4 @@ bazel-*
 install/*
 
 # Build related
-builds/*
+build/*

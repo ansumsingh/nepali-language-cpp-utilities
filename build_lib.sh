@@ -2,22 +2,19 @@
 
 #set -ex
 
-script=$1
-
-DOCKER_IMAGE_TAG=nepaliunicodecpp-build-env
-
-image_created=$(docker image ls | grep "${DOCKER_IMAGE_TAG}")
-echo "${image_created}"
-if [ "${image_created}" == "" ]
+build_dir=$(ls -d | grep build)
+echo "${build_dir}"
+if [ "${build_dir}" == "" ]
 then
-  pushd scripts
-    ls
-
-    docker build --build-arg USERNAME=${USER} -t ${DOCKER_IMAGE_TAG} . 
-  popd
+  mkdir build
+  conan install ../conan
 fi
 
-docker run -v $(pwd):/workspace \
-            -v /home/${USER}/.cache:/home/${USER}/.cache \
-            -w /workspace -i -u $UID:$GID \
-            -t ${DOCKER_IMAGE_TAG}
+pushd build
+ls
+cmake .. -DCMAKE_MODULE_PATH=${PWD}
+
+cmake --build .
+
+ctest -V
+popd
