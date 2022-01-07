@@ -1,13 +1,16 @@
 #!/bin/bash
 
-#set -ex
 
-build_dir=$(ls -d | grep build)
+build_dir=$(ls -d */ | grep "build")
+set -ex
 echo "${build_dir}"
+
 if [ "${build_dir}" == "" ]
 then
-  mkdir build
+  mkdir build 
+  pushd build
   conan install ../conan
+  popd
 fi
 
 pushd build

@@ -20,13 +20,13 @@ fi
 if [ "${script}" != "" ]
 then
   docker run -v $(pwd):/workspace \
-              -v /home/${USER}/.cache:/home/${USER}/.cache \
+              -v /home/${USER}:/home/${USER} \
               -w /workspace -i -u $UID:$GID \
               -t ${DOCKER_IMAGE_TAG}  \
               /workspace/${script} 
 else
   docker run -v $(pwd):/workspace \
-              -v /home/${USER}/.cache:/home/${USER}/.cache \
+              -v /home/${USER}:/home/${USER} \
               -w /workspace -i -u $UID:$GID \
               -t ${DOCKER_IMAGE_TAG}  
 fi
