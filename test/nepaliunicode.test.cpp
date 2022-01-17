@@ -18,7 +18,7 @@ void compare_vector(const std::vector<T>& expected, const std::vector<T>& result
 namespace nepaliunicode {
 namespace test {
 TEST_CASE("to_nepali") {
-  // Test the mapping
+  using namespace std::literals;
   SECTION("Test mapping") {
     auto results = std::vector<std::wstring>{};
 
@@ -70,6 +70,44 @@ TEST_CASE("to_nepali") {
                    });
 
     compare_vector(expected_texts, results);
+  }
+
+  SECTION("Can pass std::string and std::string_view")
+  {
+    REQUIRE(nepaliunicode::to_nepali(std::string{"Aram"}) == L"आराम"s);
+    REQUIRE(nepaliunicode::to_nepali("Aram"s) == L"आराम"s);
+    REQUIRE(nepaliunicode::to_nepali(std::string_view{"Aram"}) == L"आराम"s);
+    REQUIRE(nepaliunicode::to_nepali("Aram"sv) == L"आराम"s);
+  }
+
+  SECTION("Can pass std::wstring and std::wstring_view")
+  {
+    REQUIRE(nepaliunicode::to_nepali(std::wstring{L"Aram"}) == L"आराम"s);
+    REQUIRE(nepaliunicode::to_nepali(L"Aram"s) == L"आराम"s);
+    REQUIRE(nepaliunicode::to_nepali(std::wstring_view{L"Aram"}) == L"आराम"s);
+    REQUIRE(nepaliunicode::to_nepali(L"Aram"sv) == L"आराम"s);
+  }
+
+  SECTION("Can pass std::u16string")
+  {
+    REQUIRE(nepaliunicode::to_nepali(std::u16string{u"Aram"}) == L"आराम"s);
+    REQUIRE(nepaliunicode::to_nepali(u"Aram"s) == L"आराम"s);
+    REQUIRE(nepaliunicode::to_nepali(std::u16string_view{u"Aram"}) == L"आराम"s);
+    REQUIRE(nepaliunicode::to_nepali(u"Aram"sv) == L"आराम"s);
+  }
+
+  SECTION("Can pass std::u32string")
+  {
+    REQUIRE(nepaliunicode::to_nepali(std::u32string{U"Aram"}) == L"आराम"s);
+    REQUIRE(nepaliunicode::to_nepali(U"Aram"s) == L"आराम"s);
+    REQUIRE(nepaliunicode::to_nepali(std::u32string_view{U"Aram"}) == L"आराम"s);
+    REQUIRE(nepaliunicode::to_nepali(U"Aram"sv) == L"आराम"s);
+  }
+
+  SECTION("Compilation fails if string is not provided")
+  {
+    //Uncomment the following to see that the compilation fails
+    //nepaliunicode::to_nepali(std::vector<char>{});
   }
 }
 } // namespace test

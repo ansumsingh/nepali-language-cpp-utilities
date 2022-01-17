@@ -1,9 +1,8 @@
-#include "nepaliunicode.h"
-#include <algorithm>
+#pragma once
 #include <unordered_map>
 
-namespace {
-const auto keyToNepali = std::unordered_map<char, wchar_t>{
+namespace nepaliunicode::detail {
+const auto keyToNepali = std::unordered_map<wchar_t, wchar_t>{
     {'a', 0x093E},  // ा
     {'b', 0x092C},  // ब
     {'c', 0x091B},  // छ
@@ -84,17 +83,4 @@ const auto keyToNepali = std::unordered_map<char, wchar_t>{
     {'/', 0x094D},  // ्
     {'?', 0x003F},  // ?
 };
-}
-
-std::wstring nepaliunicode::to_nepali(const std::string &romanized_nepali) {
-  auto result = std::wstring{};
-  std::transform(romanized_nepali.cbegin(), romanized_nepali.cend(),
-                 std::back_inserter(result), [&](const char input_char) {
-                   const auto found = keyToNepali.find(input_char);
-                   if (found != keyToNepali.end()) {
-                     return found->second;
-                   }
-                   return static_cast<wchar_t>(input_char);
-                 });
-  return result;
 }
