@@ -3,7 +3,7 @@
 #include <algorithm>
 #include <string>
 
-namespace nepaliunicode {
+namespace nepali {
 
 template <class T,
           typename = std::enable_if_t<std::is_same<typename T::traits_type, std::char_traits<char>>::value ||
@@ -22,4 +22,12 @@ std::wstring to_nepali(const T &romanized_nepali) {
                  });
   return result;
 }
-} // namespace nepaliunicode
+
+template <class T, typename = std::enable_if_t<std::is_unsigned<T>::value>>
+std::wstring number_to_nepali_words(T input) {
+  
+  return detail::number_to_nepali_words(static_cast<uint64_t>(input));
+
+}
+
+} // namespace nepali

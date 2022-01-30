@@ -3,12 +3,18 @@ A simple and easy-to-use C++ library that provides utilities for nepali language
 
 ## Key Features
 - Provides a conversion API that takes text (romanized keyboard text) and convert to unicode.
+- Provides an API that converts unsigned number to nepali word, e.g. 1111 -> एक हजार एक सय एघार
 - Simple APIs
 
 ## Usage 
 ### Convert to nepali unicode
 ```
-  auto nepali_text = nepaliunicode::to_nepali(romanized_text);
+  assert(nepali::to_nepali(L"Aram"s) == L"आराम"s);
+```
+
+### Convert number to word
+```
+  assert(nepali::number_to_nepali_word(1111) == L"एक हजार एक सय एघार"s);
 ```
 
 **Requirements**
@@ -19,4 +25,7 @@ A simple and easy-to-use C++ library that provides utilities for nepali language
 
 **TODO**
 - Packaging 
-- Add a function for SRS-2 and SRS-3
+- Build in Github CI.
+- change repository name to nepali-lang-util-cpp
+- Add fuzz testting
+- Make repository public and versioning

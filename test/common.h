@@ -2,7 +2,7 @@
 #include <string>
 #include <vector>
 
-namespace nepaliunicode {
+namespace nepali {
 namespace test {
 const auto romanized_chars = std::vector<std::string>{
     "a", "b", "c",  "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n",
@@ -41,4 +41,4 @@ const auto expected_nepali_chars = std::vector<std::wstring>{
     std::wstring{0x0964}, std::wstring{0x0965}, std::wstring{0x094D},
     std::wstring{0x003F}};
 } // namespace test
-} // namespace nepaliunicode
+} // namespace nepali

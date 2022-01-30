@@ -1,7 +1,7 @@
 #pragma once
 #include <unordered_map>
 
-namespace nepaliunicode::detail {
+namespace nepali::detail {
 const auto keyToNepali = std::unordered_map<wchar_t, wchar_t>{
     {'a', 0x093E},  // ा
     {'b', 0x092C},  // ब
@@ -83,4 +83,7 @@ const auto keyToNepali = std::unordered_map<wchar_t, wchar_t>{
     {'/', 0x094D},  // ्
     {'?', 0x003F},  // ?
 };
+
+std::wstring number_to_nepali_words(uint64_t input);
+
 }
