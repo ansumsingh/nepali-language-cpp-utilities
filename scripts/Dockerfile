@@ -17,7 +17,7 @@ RUN apt update && apt install -y g++ \
     gdb \
     apt-transport-https \
     gnupg \
-    python3-pip \
+    python3-pip
 
 RUN pip3 install conan
 

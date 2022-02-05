@@ -4,7 +4,7 @@
 
 script=$1
 
-DOCKER_IMAGE_TAG=nepaliunicodecpp-build-env
+DOCKER_IMAGE_TAG=nepali-language-util-cpp-build-env
 
 image_created=$(docker image ls | grep "${DOCKER_IMAGE_TAG}")
 

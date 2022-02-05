@@ -1,4 +1,4 @@
-# नेपालीunicodeC++
+# नेपाली language C++ utilities
 A simple and easy-to-use C++ library that provides utilities for nepali language. 
 
 ## Key Features
