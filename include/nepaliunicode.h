@@ -14,9 +14,9 @@ std::wstring to_nepali(const T &romanized_nepali) {
   auto result = std::wstring{};
   std::transform(romanized_nepali.cbegin(), romanized_nepali.cend(),
                  std::back_inserter(result), [](const auto input_char) {
-                   const auto found = detail::keyToNepali.find(static_cast<wchar_t>(input_char));
-                   if (found != detail::keyToNepali.end()) {
-                     return found->second;
+                   const auto found = detail::romanized_to_nepali_unicode(static_cast<wchar_t>(input_char));
+                   if (found) {
+                     return found.value();
                    }
                    return static_cast<wchar_t>(input_char);
                  });
