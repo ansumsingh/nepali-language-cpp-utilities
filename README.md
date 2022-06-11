@@ -26,6 +26,5 @@ A simple and easy-to-use C++ library that provides utilities for nepali language
 **TODO**
 - Packaging 
 - Build in Github CI.
-- change repository name to nepali-lang-util-cpp
 - Add fuzz testting
 - Make repository public and versioning
