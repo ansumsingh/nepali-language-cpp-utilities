@@ -1,4 +1,4 @@
-[![Linux build](https://github.com/ansumsingh/nepali-language-cpp-utilities/workflows/cmake.yml/badge.svg)](https://github.com/ansumsingh/nepali-language-cpp-utilities/actions)
+[![Linux build](https://github.com/ansumsingh/nepali-language-cpp-utilities/workflows/linux-build/badge.svg)](https://github.com/ansumsingh/nepali-language-cpp-utilities/actions)
 
 # नेपाली language C++ utilities
 A simple and easy-to-use C++ library that provides utilities for nepali language. 
@@ -20,9 +20,9 @@ A simple and easy-to-use C++ library that provides utilities for nepali language
 ```
 
 **Requirements**
-- SRS-1 Convert romanized english characters to Nepali unicode
-- SRS-2 Shall produce numbers into Nepali number text
-- SRS-3 Shall stringify numbers
+- SRS-1 Convert romanized english characters to Nepali unicode ✔️
+- SRS-2 Shall produce numbers into Nepali number text ✔️
+- SRS-3 Shall stringify numbers ✔️
 - SRS-4 Shall convert Date into Nepali date
 
 **TODO**
