@@ -23,11 +23,23 @@ jobs:
     - name: Install Conan
       run: pip3 install conan
     
-    - name: Setup
+    - name: Setup ⚙️
       run:  |
         mkdir ${{github.workspace}}/build
         pushd ${{github.workspace}}/build
         conan install ../conan
+        popd
       
-    - name: Build
-      run: ls
+    - name: Build 🏗️
+      run: |
+        pushd ${{github.workspace}}/build
+        cmake .. -DCMAKE_MODULE_PATH=${PWD}
+
+        cmake --build .
+        popd
+
+    - name: Run unittest 🧪 
+      run: |
+        pushd ${{github.workspace}}/build
+        ctest -V
+        popd
