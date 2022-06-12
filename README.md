@@ -1,4 +1,4 @@
-![Linux build](https://github.com/ansumsingh/nepali-language-cpp-utilities/.github/workflows/cmake.yaml/badge.svg)
+[![Linux build](https://github.com/ansumsingh/nepali-language-cpp-utilities/actions/workflows/.github/workflows/cmake.yaml/badge.svg)](https://github.com/ansumsingh/nepali-language-cpp-utilities/actions/workflows/.github/workflows/cmake.yaml)
 
 # नेपाली language C++ utilities
 A simple and easy-to-use C++ library that provides utilities for nepali language. 
